@@ -1,0 +1,641 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en'>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="../favicon.ico" />
+
+    <title>Computer Graphics - Perfectly timed Proposal</title>
+
+    <link href="resources/bootstrap.min.css" rel="stylesheet">
+    <link href="resources/offcanvas.css" rel="stylesheet">
+    <link href="resources/custom2014.css" rel="stylesheet">
+    <link href="resources/twentytwenty.css" rel="stylesheet" type="text/css" />
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+	
+
+	<style>
+        p, ol{font-size:large;}
+    </style>
+</head>
+
+<body>
+
+<div class="container headerBar">
+		<h1>Perfectly timed- Zheyu Shi and Elham Amin Mansour</h1>
+</div>
+
+<div class="container contentWrapper">
+<div class="pageContent">
+
+	<!-- ================================================================= -->
+
+	<div name="Motivation">
+
+		<h1>Motivation</h1>
+		<p>
+			This image inspired us because of the perfect aiming time of the arrow towards the deer. We can also sense the motion because the image is tilted.
+		</p>	
+		<p>
+			We also find this scenario interesting because we would have a lot of potential for implementing different visual effects. For instance we will be able to render the fog in the background
+			using homogeneous participating media and we have a lot of different surfaces to which we can apply images as textures. However, we do plan on simplifying the characters
+			to some extent since simulating the hair and skin of the human would be rather difficult. We also plan on modifying our image by for example adding some water on the ground or having the 
+			arrow soar in the air. In addition, we plan to adjust the aperture and apply camera motion blur to strengh motion effects in our scene, and use denosing technique to reduce the render time.
+		</p>
+		<p>
+			It is however possible that we will not be able to render all of our features on this particular image in order not to hurt the scene. We will render the remaining features on other example 
+			features. For validation, we will compare the our renderer's results for specific features with the results of a renderer such as Mitsuba.
+		</p>
+
+
+		<div class="twentytwenty-container">
+			<img src="images/inspirationalPhoto.png"  class="img-responsive">
+		</div> <br>
+
+	</div>
+
+	<div name="report">
+	<h1>Elham Amin Mansour's Report</h1>
+		<h2> 5-point features</h2>
+		<div name="Euler">
+			<h3> Euler </h3>
+			<p>
+				This feature was done by turning off the GUI of the nori framework.
+			</p>
+			</p>
+			files:
+				changes made to main.cpp
+			<p>
+			</p>
+				our main nori commands: <br>
+				with gui: ./nori path.xml <br>
+				without gui: ./nori path.xml nogui <br><br>
+			<p>
+
+			<p>
+				This feature helped out a lot with certian features such as the homogeneous media which takes a long time to render. 
+				A problem that was encountered in the beginning was that we got noisy image results and this was resolved by joining the thread that
+				does the rendering.
+			</p>
+		</div>
+
+		<div name="Rough Dielectric">
+		<h3> Rough Dielectric </h3>
+			<p>
+				files:<br>
+				src/roughDielectric.cpp<br>
+				src/microHelper.cpp<br>
+				include/microHelper.h<br>
+			</p>
+			<p>
+				parameters:<br>
+			
+					alpha: .304<br>
+					extIOR: 1<br>
+					intIOR: 1.5<br>
+	
+			</p>
+			<p>
+				In previous assignments we implemented the dielectric bsdf. For the project, the rough dielectric was done. 
+			</p>
+
+
+			<p>
+				For the implementation, I looked into the mitsuba implementation as it is our reference of validation. I tried following the same path but slightly simplified.
+				https://github.com/mitsuba-renderer/mitsuba/blob/master/src/bsdfs/roughdielectric.cpp
+				My implemetation uses the beckmann distribution.
+			</p>
+
+			<p>
+				To validate, we created two identical scenes for our renderer and mitsuba 0.5.0 : the cornell box with only one sphere of rough dielectric bsdf with interior, exterior coefficients. Here is what they look like:
+			</p>
+
+			<div class="twentytwenty-container">
+				<img src="images/elham/roughDielectric/roughdielectric_testing.png" alt="Mine" class="img-responsive">
+				<img src="images/elham/roughDielectric/roughDielectric_mitsuba.png" alt="Reference" class="img-responsive">
+			</div> <br>
+
+		
+			<p>
+				My result is darker. 
+			</p>
+		</div>
+
+
+		<div name="Spotlight">
+			<h3> Spotlight </h3>
+				<p>
+					files:<br>
+					src/spotlight.cpp<br>
+				</p>
+				<p>
+					parameters:<br>
+					radiance<br>
+					position<br>
+					direction<br>
+					fallOffStart<br>
+					totalWidth<br>
+				</p>
+				<p>
+					In previous assignments we implemented the area light and point light. For this project, we implemented the spotlight emitter. 
+				</p>
+	
+	
+				<p>
+					For the implementation, I looked into the the pbr book and implementation. So concerning the angles, from angle 0 to the fallOfStart angle 
+					we have the complete intensity but then from this angle on forth the intensity linearly decreases until at the angle totalWidth the intensity of light drops to
+					0.
+				</p>
+	
+				<p>
+					To validate, we created two scenes containing a base floor with 3 spotlights shining on it and a sphere on the center spotlight. The camera positions are not exactly the same and neither are the origins of the spotlights. This is because the position conversions were hard to do. 
+				</p>
+	
+				<div class="twentytwenty-container">
+					<img src="images/elham/spotLight/spotlight_testing.png" alt="Mine" class="img-responsive">
+					<img src="images/elham/spotLight/spotlight_mitsuba.png" alt="Reference" class="img-responsive">
+				</div> <br>
+	
+			
+			</div>
+
+		<div name="Modeling meshes">
+			<h3> Modeling meshes </h3>
+			</p>
+				files:<br>
+				scenes/project/meshes/deer.obj
+			<p>
+			<p>
+				For our assignment, I modeled an 8 legged deer with blender from scratch. For this task, I had to buy a mouse since working without one was difficult.
+			</p>
+
+			<p>
+				This can be seen in a sample scene:
+			</p>
+
+			<div class="twentytwenty-container">
+				<img src="images/elham/SampleScene.png" alt="Mine" class="img-responsive">
+			</div> <br>
+		</div>
+
+
+		<h2> 10-point feature</h2>
+
+
+		<div name="Motion blur">
+			<h3> Motion blur for arbitrary object</h3>
+			</p>
+				files:<br>
+				changes made to main.cpp<br>
+			<p>
+			<p>
+				For this feature, ./nori takes 2 xml files which should be identical except for the blurred object which should be moved is some way using the transform matrix.
+				"./nori file.xml fileWithMovedObject.xml nogui". Then nori interpolates the results of these 2 scenes by taking the average. 
+			</p>
+
+			<p>
+				The result can be seen on the image below. THe motion blur is applied to the cube in the center.
+			</p>
+
+			<div class="twentytwenty-container">
+				<img src="images/elham/motionBlur/motionBlur.png" >
+			</div> <br>
+
+			<div class="twentytwenty-container">
+				<img src="images/final.png" >
+			</div> <br>
+
+
+
+		<h2> 15-point features</h2>
+
+		<div name="Homogenous Medium">
+			<h3> Homogenous Medium </h3>
+
+			</p>
+				files:<br>
+				src/medium.cpp<br>
+				src/PhaseFunction.cpp<br>
+				src/vol_Path.cpp<br>
+				include/medium.h<br>
+				include/PhaseFunction.h<br>
+			<p>
+
+			<p>
+				parameters: <br>
+				
+					phase :"isotropic or henyey-greenstein"<br>
+					sigma_a:  0.1, 0.1, 0.1<br>
+					sigma_s: 0.2, 0.2, 0.2<br>
+			
+			</p>
+			<p>
+				For this feature, we used the course slides as a reference. First there was volumetric path tracer that needed to implemented(page 111 of the participating Media I). I tried doing this with 
+				importance sampling but it did not work so in the end I settled with mat sampling. The volumetic PT uses free path sampling. For sampling the phase function
+				I used Henyey-greenstein and isotropic sampling. No delta tracking waas used since this is only homogeneous media.
+
+			</p>
+				The media passed on in the xml file asks for the sigmaS and the sigmaA which are respectively the scatter and absorbtion coefficients. It also asks for the sampling method of the phase function.
+			<p>
+			
+			<p>
+				To validate, we created two indentical scenes using Mitsuba 0.5.0 and our own renderer, once using the isotrpic sampling and the agian using the henyey-greenstein sampling.
+			</p>
+
+			<p>
+				isotropic
+			</p>
+
+
+			<div class="twentytwenty-container">
+				<img src="images/elham/homogeneous/homogeneousWithsphere_testing.png" alt="Mine" class="img-responsive">
+				<img src="images/elham/homogeneous/homogeneousSphere_mitsuba.png" alt="Reference" class="img-responsive">
+			</div> <br>
+
+
+			<p>
+				henyey-greenstein
+			</p>
+
+			<div class="twentytwenty-container">
+				<img src="images/elham/homogeneous/hen.png" alt="Mine" class="img-responsive">
+				<img src="images/elham/homogeneous/homogeneousSphere_mitsuba.png" alt="Reference" class="img-responsive">
+			</div> <br>
+
+			<p>
+				Also the image without any media:
+			</p>
+
+			<div class="twentytwenty-container">
+				<img src="images/elham/homogeneous/homogeneousWithPathMATSSphere_testing.png" alt="Reference" class="img-responsive">
+			</div> <br>
+		
+			<p>
+				The homogeneous media created using the isotropic(uniform sphere sampling)  on the cornell box is darker than the one produced by mitsuba.
+			</p>
+		</div>
+		<div name="Environment mapping">
+			<h3> Environment mapping </h3>
+			<p>
+				src/bitmap_light_env.cpp<br>
+				src/environment_light.cpp<br>
+				src/path_mis.cpp<br>
+				include/bitmap_light_env.h<br>
+				
+			</p>
+			<p>
+				parameters: <br>
+				the exr file used for the background
+			</p>
+			<p>
+				For this feature, we decided to use the marginal conditional CDF instead of Hierarchical Sample Warping. The "environment_map" tag will take an exr file and read it with the bitmap structure then use the functions presented in the paper 
+				"https://web.cs.wpi.edu/~emmanuel/courses/cs563/S07/projects/envsample.pdf"  for drawing samples. The samples will be used for calculating the pdf of the emitter and the eval simply returns the 
+				pixel that is hit on the bitmap by the spherical coordinates of the given direction. For this feature I had to check a lot of edge cases because I constantly got segmentation fault.
+			</p>
+			<p>
+				For this feature I also had to change the path_mis.cpp implementation. So when a ray does not hit the scene, we don't return a dark pixel like before but its evaluation with the pixels of the bitmap(the background file)
+			</p>
+
+
+			<p>
+				To validate, we created two indentical scenes(the camera positions are not identical) in nori and Mitsuba0.5.0 respectively. This is what they look like
+			</p>
+
+			<div class="twentytwenty-container">
+				<img src="images/elham/envmap/envmap_testing.png" alt="Mine" class="img-responsive">
+				<img src="images/elham/envmap/envmap_mitsuba.png" alt="Reference" class="img-responsive">
+			</div> <br>
+		
+		
+		</div>
+
+
+	
+
+			
+	</div>
+
+		<h1>Zheyu Shi's Report</h1>
+			<h2> 5-point features</h2>
+
+			<div name="Images as Textures">
+				<h3> Images as Textures </h3>
+				<p>
+					In previous assignments we implemented some simple textures like single-color albedo and checkerboard texture. This time we should attach images to objects as textures.
+				</p>
+
+				<p>
+					To achieve that, we should first read images using lodepng library and convert sRGB to linearRGB(because we are using linarRGB in nori by default). After we get the images' representation, we need to create a texture which evaluates the pixel RGB value at any given (u,v) and uses it as albedo. Finally we can apply this texture to desired DSDFs.
+				</p>
+
+				<p>
+					To validate, we created two indentical scenes in nori and Mitsuba2 respectively. This is what they look like
+				</p>
+
+				<div class="twentytwenty-container">
+					<img src="images/zheyu/imageTexture/texture_mine.jpg" alt="Mine" class="img-responsive">
+					<img src="images/zheyu/imageTexture/texture_reference.jpg" alt="Reference" class="img-responsive">
+				</div> <br>
+
+
+				<div class="twentytwenty-container">
+					<img src="images/zheyu/imageTexture/wood_mine.jpg" alt="Mine" class="img-responsive">
+					<img src="images/zheyu/imageTexture/wood_reference.jpg" alt="Reference" class="img-responsive">
+				</div> <br>
+			
+				<p>
+					At first, I didn't do the sRGB->linearRGB convertion, so the planes look brighter than the reference. After the convertion, they look almost the same.
+				</p>
+			</div>
+
+			<div name="Normal Mapping">
+				<h3> Normal Mapping </h3>
+				<p>
+					In this feature, we will modify mesh's shading normal according to a normal map. The normal is usally stored in an RGB image, and the (r, g, b) color values at a pixel defines a normal Vector3(r, g, b) in tangent space. 
+				</p>
+
+				<p>
+					The implementation include following steps:
+				</p>
+
+				<ol type="1">
+					<li>Read images as textures(same as texture mapping), but use their raw RGB values.</li>
+					<li>When a intersection detected, calculate the local tangent vector and bitangent vector on the mesh.</li>
+					<li>Compute a tangent space coordinate by (tangent, bitangent, old_normal), convert the new normal from tangent space to world space, and set it as the new shading normal. </li>
+				</ol>
+
+				<p>
+					Images below show comparision between normalmap off and normalmap on. They also show comparision of our results vs Mitsub2's results.
+				</p>
+
+				<div class="twentytwenty-container">
+					<img src="images/zheyu/normalMap/without_normal2.jpg" alt="off_mine" class="img-responsive">
+					<img src="images/zheyu/normalMap/with_normal2.jpg" alt="on_mine" class="img-responsive">
+					<img src="images/zheyu/normalMap/without_normal2_reference.jpg" alt="off_reference" class="img-responsive">
+					<img src="images/zheyu/normalMap/reference_with_correct.jpg" alt="on_reference" class="img-responsive">
+				</div> <br>
+
+				<p>
+					A problem we encountered here is the official example scene provided by Mitsuba2 may be incorrect. They use +X, -Y, +Z setting of normal map, the image they provide however ages as textures(sameis of setting +X, +Y, +Z. This causes the y-direction of the normal is in fact pointing to the opposite direction.
+					This will cause undesired result. Below is a comparision of using original provided texture image and using y-flipped texture image.
+				</p>
+
+				<div class="twentytwenty-container">
+					<img src="images/zheyu/normalMap/with_normal2_reference.jpg" alt="original(wrong)" class="img-responsive">
+					<img src="images/zheyu/normalMap/reference_with_correct.jpg" alt="y-flipped(correct)" class="img-responsive">
+				</div> <br>
+				
+				<p>
+					Since the light source is located above, our intuition can easily tell us the y-flipped texture is the desired result.
+				</p>
+			</div>
+
+			<div name="Motion Blur for Cameras">
+				<h3> Motion Blur for Cameras</h3>
+
+				<p>
+					Until now, we assume our camera is stationary, and the exposure is finished in a moment. But what if the exposure will take some time and our camera is moving during this period? This will give rise to the effect of motion blur. 
+				</p>
+
+				<p>
+					Generally, the motion of the camera consists of translation and rotation. Since rotation is kind of complicated, in this part we only consider translation. Our implementation is quite trivial. We define a intial transform and a fianl transform for the camera. During rendering, we interpolate the transform of the camera acoording to the ratio of current sample iteration to total sample number. Then we only need to use this position to generate all the rays at this sample iteration.
+				</p>
+
+				<p>
+					Here is our result. The left image is rendered with motion blur off. The right images is generated by moving the camera by a small distance towards the direction at which it looks. 
+				</p>
+
+				<div class="twentytwenty-container">
+					<img src="images/zheyu/motionBlur/motionblur_off.jpg" alt="Orignal" class="img-responsive">
+					<img src="images/zheyu/motionBlur/motionblur_on.jpg" alt="Motion Blur" class="img-responsive">
+				</div> <br>
+
+			</div>
+
+			<h2> 15-point features</h2>
+
+			<div name="Advanced Camera Model">
+				<h3> Advanced Camera Model </h3>
+
+				<p>
+					We supported three small features in our thin lens camera model, which are depth of field, non-spherical aperture and chromatic aberration. We will introduce them respectively, and show a image rendered using all three feartures.   
+				</p>
+
+				<div name="Depth of Field">
+					<h4> Depth of Field</h4>
+
+					<p>
+						Unlike pinhole camera model, thin lens camera model uses a lens to image instead of a point. A property of lens is that any point on the plane of focus will image to one fixed point on the film, despite at which point the ray passes through the lens. For points out of focus, they will image to an area on the film instead of a point. This will cause an effect of bluring on objects out of focus.   
+					</p>
+	
+					<p>
+						To implement, we refered to section <a href="http://www.pbr-book.org/3ed-2018/Camera_Models/Projective_Camera_Models.html#TheThinLensModelandDepthofField">6.2.3</a> of PBR book. Different from before where we generate a ray pointing from the pinhole to a given pixel on the film, we now sample a point on the lens and compute the corrsponding ray which will pass though the sampled point, be refracted, and finally image on the given pixel. The book describes how to calculate the ray in detail, so we will not explain it here.
+					</p>
+	
+					<p> We added two parameters for this feature: lens radius and focal distance. Lens radius controls the range within which we sample the point. Focal distance defines the distance from the focal plane to the lens.</p>
+	
+					<p>
+						Images below are generated using the same focal distance(all focused at the second box from right) but diffrect lens radii. The bigger the lens radius is, the blurer out-of-focus objects will look.
+					</p>
+	
+					<div class="twentytwenty-container">
+						<img src="images/zheyu/DOP/no.jpg" alt="pinhole" class="img-responsive">
+						<img src="images/zheyu/DOP/small.jpg" alt="small lens" class="img-responsive">
+						<img src="images/zheyu/DOP/middle.jpg" alt="middle lens" class="img-responsive">
+						<img src="images/zheyu/DOP/big.jpg" alt="big lens" class="img-responsive">
+					</div> <br>
+
+				</div>
+
+				<div name="Non-Spherical Aperture">
+					<h4> Non-Spherical Aperture </h4>
+
+					<p>
+						This feature also relies on thin lens model. The implementation is also naive because we only need to change from sampling on a disk to sampling on some other shape. We support reading an (0,1) bitmap image as the shape of the aperture. The validation is inspired by <a href="http://noobody.org/is-report/simple.html">this report</a>.
+					</p>
+
+					<p>
+						These scenes are all the same, which are some samll spheres lighted by a distant light source. The only difference is the aperture shape we use. 
+					</p>
+
+					<div class="twentytwenty-container">
+						<img src="images/zheyu/aperture/no.jpg" alt="pinhole" class="img-responsive">
+						<img src="images/zheyu/aperture/aperture_square.jpg" alt="square" class="img-responsive">
+						<img src="images/zheyu/aperture/aperture_hexagon.jpg" alt="hexagon" class="img-responsive">
+						<img src="images/zheyu/aperture/aperture_text.jpg" alt="text" class="img-responsive">
+					</div> <br>
+				</div>
+
+				<div name="Chromatic Aberrations">
+					<h4> Chromatic Aberrations </h4>
+					<p>
+						This feature is implemented by seperating the original aperture to three colored apertures, each aperture will only allow light in one color channel to pass through. In addition, when imaging pixels that are close to the film center, their positions are almost unchanged; When the pixel being imaged is close to the border of the film, their positions are slightly shifted toward different positions.
+					</p>
+
+					<p>
+						Thus, for every pixel being rendered, we first compute its displacement from the center, then we use this distance to calculate the corresponding displacements of the three apertures. Next, instead of sampling one single ray, we sample three rays for the three apertures respectively, and finally sum the results up to get the full-color results.
+					</p>
+
+					<p>
+						Image below show what this effect looks like. We can see on the boundary the aberration effect looks more strong than that at the center.
+					</p>
+
+					
+					<div class="twentytwenty-container">
+						<img src="images/zheyu/chromaticAberration/CA_off.jpg" alt="off" class="img-responsive">
+						<img src="images/zheyu/chromaticAberration/CA_on.jpg" alt="On" class="img-responsive">
+					</div> <br>
+
+				</div>
+
+				<h4> All Turned On </h4>
+				<p> 
+					Finally, we turned on all these three features and got this image.
+				</p>
+
+				<div class="twentytwenty-container">
+					<img src="images/zheyu/camera_synthesis/all.jpg" alt="all on"  class="img-responsive">
+				</div> <br>
+		
+			</div>
+
+			<h2> 30-point features</h2>
+
+			<div name="Advanced Denoising">
+				<h3> Advanced Denoising </h3>
+				<p>
+					Sometimes the rendering process will take a very long time if we want to obtain less noisy images. But if we want to recude the rendering time and still get some very nice results at the same time, one solution is to perform denoising. In this part, we implemented joint NL-means denoising with feature buffers [<a href="https://www.cs.umd.edu/~zwicker/publications/RDFC-CGF13.pdf">Rousselle et al.</a>]. 
+				</p>
+
+				<p>
+					To start with, let's only use color buffer and its variances. With some modification on src/render.cpp, we obtained original image and its variances which are showed below. Here spp is 100, and the variance values are enlarged by a factor of 1000. Note that the post-filter is changed from default gaussian filter to box filter with r=0.5 (equivalent to no filter), since we want to get raw values of pixels. We also generated a reference image using spp=10000 as the ground truth.
+				</p>
+
+				<div class="twentytwenty-container">
+					<img src="images/zheyu/denoising/original.png" alt="Color" class="img-responsive">
+					<img src="images/zheyu/denoising/original_variance.png" alt="Variance" class="img-responsive">
+					<img src="images/zheyu/denoising/reference.jpg" alt="Reference" class="img-responsive">
+				</div> <br>
+
+				<h4> NL-Means</h4>
+				<p>
+					With these information we can perform standard NL-means enoising. The algorithm is very well explained in both the lecture and the paper so we won't repeat them here, but the core idea is to compute the weights using neighbouring batches instead of single pixels. Python library skimage has an api of NL-means denosing, so we can use it as a baseline. 
+				</p>
+
+				<div class="twentytwenty-container">
+					<img src="images/zheyu/denoising/test_denoise.png" alt="Baseline" class="img-responsive">
+					<img src="images/zheyu/denoising/nl_means_denoised.jpg" alt="NL-means with variance buffer" class="img-responsive">
+				</div> <br>
+
+				<p>
+					Comparing these two results, we can clear see that our implementation has less noises than the baseline. This is becasue different from our nl-means algorithm, the baseline only takes a single $\sigma$ for the whole image. If we look at the variance buffer we will find that the variances on the ceiling is siginicantly larger than other parts. Therefore, using these more correct variances will reduce the calculated distances and eventually make our filter more aggresive in these regions. 
+				</p>
+				
+				
+				<p>
+					If we compare our result with the reference however, we will find that some important edges are smoothed by the denoiser. 
+				</p>
+
+				<div class="twentytwenty-container">
+					<img src="images/zheyu/denoising/nl_means_denoised_problem.jpg" alt="Our result" class="img-responsive">
+					<img src="images/zheyu/denoising/reference.jpg" alt="Reference" class="img-responsive">
+				</div> <br>
+
+				<h4> Adding feature buffers</h4>
+				<p>
+					This problem can be eased by leveraing other feature information. We followed the paper to use normal, texture, depth and visibility feature buffers. We also adopted the pre-filtering procedure proposed in the paper, where we use NL-means to denoise the features before we use them to denoise our image. This requires spliting every feature buffer to two half-buffers because we still need to know the residual variances.  
+				</p>
+
+				<div class="twentytwenty-container">
+					<img src="images/zheyu/denoising/normal.png" alt="Normal" class="img-responsive">
+					<img src="images/zheyu/denoising/normal_variance.png" alt="Normal Variance" class="img-responsive">
+					<img src="images/zheyu/denoising/normal_denoised.png" alt="Normal Filtered" class="img-responsive">
+					<img src="images/zheyu/denoising/normal_variance_denoised.png" alt="Normal Residual Variance" class="img-responsive">
+				</div> <br>
+
+				<div class="twentytwenty-container">
+					<img src="images/zheyu/denoising/texture.png" alt="Texture" class="img-responsive">
+					<img src="images/zheyu/denoising/texture_variance.png" alt="Texture Variance" class="img-responsive">
+					<img src="images/zheyu/denoising/texture_denoised.png" alt="Texture Filtered" class="img-responsive">
+					<img src="images/zheyu/denoising/texture_variance_denoised.png" alt="Texture Residual Variance" class="img-responsive">
+				</div> <br>
+
+
+				<div class="twentytwenty-container">
+					<img src="images/zheyu/denoising/depth.png" alt="Depth" class="img-responsive">
+					<img src="images/zheyu/denoising/depth_variance.png" alt="Depth Variance" class="img-responsive">
+					<img src="images/zheyu/denoising/depth_denoised.png" alt="Depth Filtered" class="img-responsive">
+					<img src="images/zheyu/denoising/depth_variance_denoised.png" alt="Depth Residual Variance" class="img-responsive">
+				</div> <br>
+
+				
+				<div class="twentytwenty-container">
+					<img src="images/zheyu/denoising/visibility.png" alt="Visibility" class="img-responsive">
+					<img src="images/zheyu/denoising/visibility_variance.png" alt="Visibility Variance" class="img-responsive">
+					<img src="images/zheyu/denoising/visibility_denoised.png" alt="Visibility Filtered" class="img-responsive">
+					<img src="images/zheyu/denoising/visibility_variance_denoised.png" alt="Visibility Residual Variance" class="img-responsive">
+				</div> <br>
+
+				<p>
+					Then we can plug these feature buffers in the denoiser, and compute the new joint weights with all these information. Below is a comparison of denoising results.
+				</p>
+
+				<div class="twentytwenty-container">
+					<img src="images/zheyu/denoising/RMSE/original.png" alt="Orignal" class="img-responsive">
+					<img src="images/zheyu/denoising/RMSE/test_denoise.png" alt="Baseline" class="img-responsive">
+					<img src="images/zheyu/denoising/RMSE/without_visibility.jpeg" alt="NL-means with Features" class="img-responsive">
+					<img src="images/zheyu/denoising/reference.jpg" alt="Reference" class="img-responsive">
+				</div> <br>
+
+				<p>
+					The running time of our denosing algorithm is about 160 seconds. In the end, the overall rendering time using denoiser is 190s = 30s(rendering) + 160s(denoising), but the result is quite close to the reference which costs 3000s. What's more, since cbox is a quite simple scene, the rendering time itself is not too long, but when rendering more complicated scenes the denoiser will bring a much more significant acceleration.
+				</p>
+	</div>
+
+	<div name="final image">
+
+
+		<p>
+			This is our final image which has an arrow holder throwing an arrow towards a deer. We modeled the deer ourselves. The floor is textured using our own features.
+			The thin lens are used for the camera and also other objects are added. The goal was to also add either environment_map or homogeneous medium but this was not possible since the euler queue was compeltely full.
+		</p>	
+		
+
+
+		<div class="twentytwenty-container">
+			<img src="images/final.jpeg"  class="img-responsive">
+		</div> <br>
+
+	</div>
+
+</div>
+</div>
+
+
+<!-- Bootstrap core JavaScript -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="resources/bootstrap.min.js"></script>
+<script src="/js/offcanvas.js"></script>
+<script src="resources/jquery.event.move.js"></script>
+<script src="resources/jquery.twentytwenty.js"></script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$']]},
+        messageStyle: "none"
+    });
+</script>
+
+
+<script>
+$(window).load(function(){$(".twentytwenty-container").twentytwenty({default_offset_pct: 0.5});});
+</script>
+
+</body>
+</html>

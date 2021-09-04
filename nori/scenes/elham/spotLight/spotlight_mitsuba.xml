@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<scene version="0.5.0">
+	<integrator type="path"/>
+
+	<sensor type="perspective">
+		<float name="focusDistance" value="5.97656"/>
+		<float name="fov" value="70"/>
+		<string name="fovAxis" value="x"/>
+		<integer name="height" value="400"/>
+		<transform name="toWorld">
+
+			<lookat target="0, 0, 0" origin="14, 15, 2" up="0, 1.5, 0"/>
+		</transform>
+		<integer name="width" value="800"/>
+
+		<sampler type="independent">
+			<integer name="sampleCount" value="256"/>
+		</sampler>
+
+		<film type="hdrfilm">
+			<rfilter type="gaussian"/>
+		</film>
+	</sensor>
+
+<emitter type="spot">
+    <transform name="toWorld">
+        <lookat target="7, 0, 0"
+                origin="7, 7, 0"/>
+    </transform>
+    <spectrum name="intensity" value = "100"/>
+    <float name="cutoffAngle" value="40"/>
+    <float name="beamWidth" value="30"/>
+</emitter>
+
+<emitter type="spot">
+    <transform name="toWorld">
+        <lookat target="7, 0, -10"
+                origin="7, 3, -7"/>
+    </transform>
+    <spectrum name="intensity" value = "100"/>
+    <float name="cutoffAngle" value="40"/>
+    <float name="beamWidth" value="10"/>
+</emitter>
+
+<emitter type="spot">
+    <transform name="toWorld">
+        <lookat target="7, 0, 12"
+                origin="7, 7, 7"/>
+    </transform>
+    <spectrum name="intensity" value = "100"/>
+    <float name="cutoffAngle" value="30"/>
+    <float name="beamWidth" value="20"/>
+</emitter>
+
+	<shape type="sphere">
+		<bsdf type="diffuse">
+			<spectrum name="reflectance" value="0.2,0.9,0.3"/>
+		</bsdf>
+	   <transform name="toWorld">
+        <scale x="1" y="1" z="1"/>
+        <rotate z="1" angle="90"/>
+        <rotate x="1" angle="-90"/>
+        <translate x="7" y="1" z="0"/>
+    </transform>
+	</shape>
+
+	<shape type="sphere">
+		<bsdf type="diffuse">
+			<spectrum name="reflectance" value="0.55,0.55,0.55"/>
+		</bsdf>
+		<transform name="toWorld">
+            <scale x=".04" y=".05" z=".05"/>
+            <rotate angle="-90" z="2" />
+            <rotate angle="-90" x="1" />
+            <translate x="13" y="3" z="10"/>
+        </transform>
+	</shape>
+
+	<shape type="sphere">
+		<bsdf type="diffuse">
+			<spectrum name="reflectance" value="0.55,0.55,0.55"/>
+		</bsdf>
+		<transform name="toWorld">
+            <scale x=".04" y=".05" z=".05"/>
+            <rotate angle="-90" z="2" />
+            <rotate angle="-90" x="1" />
+            <translate x="6" y="0" z="-5"/>
+        </transform>
+	</shape>
+
+
+
+	<shape type="obj">
+		<string name="filename" value="base.obj"/>
+
+		<bsdf type="diffuse">
+		</bsdf>
+		<transform name="toWorld">
+            <scale x="20" y="20" z="20"/>
+            <rotate angle="90" z="1" />
+            <translate x="100" y="-4" z="0"/>
+        </transform>
+	</shape>
+</scene>
+
+
+
+
+
+	

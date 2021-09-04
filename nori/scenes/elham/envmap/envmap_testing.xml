@@ -1,0 +1,57 @@
+<scene version="0.5.0">
+    <!-- Integrator -->
+    <integrator type="path_mis"/>
+
+    <!-- Perspective camera -->
+    <camera type="perspective">
+        <transform name="toWorld">
+            <scale value="1,1,1"/>
+            <lookat target="0,0,1" origin="5,5,1" up="0,0,1"/>
+        </transform>
+        <float name="fov" value="100"/>
+
+        <integer name="height" value="600"/>  <!-- have to choose proper values -->
+        <integer name="width" value="800"/>
+    </camera>
+
+    <!-- Sample generator, number of samples per pixel -->
+    <sampler type="independent">
+        <integer name="sampleCount" value="32"/>
+    </sampler>
+
+ 
+
+    <mesh type="sphere">
+        <point name="center" value="0,0,0"/>
+        <float name="radius" value="2"/>
+        <bsdf type="diffuse"/>
+
+     </mesh>
+ 
+    <!--<emitter type="environment_map">
+        <string name="file_path" value="../background.exr"/>    
+    </emitter>-->
+
+    <mesh type="sphere">
+        <point name="center" value="0,0,1"/>
+        <float name="radius" value="30"/>
+
+        <emitter type="environment_map">
+           <string name="file_path" value="../back2.exr"/>  
+        </emitter>
+    </mesh>
+
+<!--
+    <mesh type="obj">
+		<string name="filename" value="meshes/light.obj"/>
+
+		<emitter type="area">
+			<color name="radiance" value="15 15 15"/>
+		</emitter>
+	</mesh>  -->
+
+
+
+
+
+</scene>

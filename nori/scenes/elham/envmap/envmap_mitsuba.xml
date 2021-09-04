@@ -1,0 +1,79 @@
+<scene version="0.5.0">
+    <!-- Integrator -->
+    <integrator type="path">
+        <!-- Instantiate a path tracer with a max. path length of 8 -->
+        <integer name="max_depth" value="8"/>
+    </integrator>
+
+        <!-- Instantiate a perspective camera with 45 degrees field of view -->
+    <sensor type="perspective">
+        <!-- Rotate the camera around the Y axis by 180 degrees -->
+        <!--<transform name="to_world">
+            <rotate y="1" angle="180"/>
+        </transform>-->
+        <transform name="to_world">
+            <!--<scale value= x="-1" y="1" z="1"/>-->
+            <!--<lookat target=x="0" y="0" z="1" origin=x="5" y="5" z="1" up=x="0" y="0" z="1"/>-->
+            <lookat target="0,0,1" origin="5,5,1" up="0,0,1"/>
+        </transform>
+        <float name="fov" value="100"/>
+
+        <!-- Render with 32 samples per pixel using a basic
+             independent sampling strategy -->
+        <sampler type="independent">
+            <integer name="sample_count" value="32"/>
+        </sampler>
+
+        <!-- Generate an EXR image at HD resolution -->
+        <film type="hdrfilm">
+            <integer name="height" value="600"/>
+            <integer name="width" value="800"/>
+        </film>
+    </sensor>
+
+
+    <!-- Perspective my camera 
+    <camera type="perspective">
+        <transform name="toWorld">
+            <scale value="-1,1,1"/>
+            <lookat target="0,0,1" origin="5,5,1" up="0,0,1"/>
+        </transform>
+        <float name="fov" value="100"/>
+
+        <integer name="height" value="600"/> 
+        <integer name="width" value="800"/>
+    </camera>-->
+
+ 
+    <!--<sampler type="independent">
+        <integer name="sampleCount" value="32"/>
+    </sampler>-->
+
+ 
+    <!-- my sphere<mesh type="sphere">
+        <point name="center" value="0,0,1"/>
+        <float name="radius" value="3"/>
+        <bsdf type="diffuse"/>
+
+     </mesh>
+    -->
+    <shape type="sphere">
+        
+       <bsdf type="diffuse"/>
+       <point name="center" x="0" y="0" z="1"/>
+       <float name="radius" value="3"/>
+       
+    </shape>
+
+     <emitter type="envmap">
+        <spectrum name="radiance" value="1.0"/>
+        <string name="filename" value="back2.exr"/> 
+    </emitter>
+ <!--
+    <emitter type="environment_map">
+        <string name="file_path" value="../background.exr"/>    
+    </emitter>-->
+
+
+
+</scene>

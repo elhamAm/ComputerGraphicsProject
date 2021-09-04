@@ -1,0 +1,70 @@
+<?xml version="1.0" ?>
+<scene>
+	<integrator type="path_mis"/>
+	<sampler type="independent">
+		<integer name="sampleCount" value="32"/>
+	</sampler>
+	<camera type="perspective">
+		<float name="fov" value="49.13434207760448"/>
+		<float name="nearClip" value="0.10000000149011612"/>
+		<float name="farClip" value="100.0"/>
+		<integer name="width" value="960"/>
+		<integer name="height" value="540"/>
+		<transform name="toWorld">
+			<scale value="1.000000 1.000000 -1.000000"/>
+			<matrix value="-0.29203861951828003,-0.13061533868312836,0.9474455714225769,34.50802993774414,0.9563151001930237,-0.053577519953250885,0.28738629817962646,8.773998260498047,0.013224721886217594,0.989984393119812,0.14055612683296204,5.157094955444336,0.0,0.0,0.0,1.0"/>
+		</transform>
+	</camera>
+	<mesh type="obj">
+		<string name="filename" value="meshes/light.obj"/>
+		<transform name="toWorld">
+			<scale value="1.000000 1.000000 -1.000000"/>
+			<matrix value="-0.29203861951828003,-0.13061533868312836,0.9474455714225769,34.50802993774414,0.9563151001930237,-0.053577519953250885,0.28738629817962646,8.773998260498047,0.013224721886217594,0.989984393119812,0.14055612683296204,5.157094955444336,0.0,0.0,0.0,1.0"/>
+		</transform>
+		<emitter type="area">
+			<color name="radiance" value="34000, 24000, 8000"/>
+		</emitter>
+	</mesh>
+	<emitter type="point">
+		<point name="position" value="4.076245,1.005454,5.903862"/>
+	</emitter>
+	<mesh type="obj">
+		<string name="filename" value="meshes/Plane.005_None.002.obj"/>
+		<transform name="toWorld">
+			<matrix value="1.501924991607666,0.0,0.0,0.0,0.0,-2.446946609779843e-07,-1.501924991607666,-0.8335036635398865,0.0,1.501924991607666,-2.446946609779843e-07,-1.499910831451416,0.0,0.0,0.0,1.0"/>
+		</transform>
+		<bsdf type="diffuse">
+			<color name="albedo" value="0.800000,0.800000,0.800000"/>
+		</bsdf>
+	</mesh>
+	<mesh type="obj">
+		<string name="filename" value="meshes/Mini_Archer_None.001.obj"/>
+		<transform name="toWorld">
+			<matrix value="0.6101523041725159,-1.2907946711493423e-07,-0.7922841310501099,6.079946517944336,-0.7922841310501099,-9.940642797801047e-08,-0.6101523041725159,-5.9789323806762695,0.0,1.0,-1.6292068494294654e-07,-2.4498729705810547,0.0,0.0,0.0,1.0"/>
+		</transform>
+		<bsdf type="diffuse">
+			<color name="albedo" value="0.800000,0.800000,0.800000"/>
+		</bsdf>
+	</mesh>
+	<mesh type="obj">
+		<string name="filename" value="meshes/Arrow_Arrow.obj"/>
+		<transform name="toWorld">
+			<matrix value="-2.4134883880615234,-3.264847755432129,-1.8762270212173462,3.088291883468628,-2.265707015991211,3.0390660762786865,-2.3738226890563965,-3.2342453002929688,3.007662057876587,-0.3305022120475769,-3.2938005924224854,4.730864524841309,0.0,0.0,0.0,1.0"/>
+		</transform>
+		<bsdf type="diffuse">
+			<color name="albedo" value="0.800000,0.800000,0.800000"/>
+		</bsdf>
+	</mesh>
+	<mesh type="obj">
+		<string name="filename" value="meshes/Plane_Plane.008_None.obj"/>
+		<transform name="toWorld">
+			<matrix value="0.669440507888794,1.210281794783441e-07,0.7428656816482544,-5.428380489349365,0.7428656816482544,-1.0906570224733514e-07,-0.669440507888794,3.9675819873809814,0.0,1.0,-1.6292068494294654e-07,2.371171236038208,0.0,0.0,0.0,1.0"/>
+		</transform>
+		<bsdf type="diffuse">
+			<color name="albedo" value="0.800000,0.800000,0.800000"/>
+		</bsdf>
+	</mesh>
+	<emitter type="environment_map">
+        <string name="file_path" value="../background.exr"/>    
+    </emitter>
+</scene>

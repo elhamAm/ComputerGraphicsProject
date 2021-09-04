@@ -1,0 +1,36 @@
+Sender: LSF System <lsfadmin@eu-ms-013-28>
+Subject: Job 155877076: <finalScene> in cluster <euler> Exited
+
+Job <finalScene> was submitted from host <eu-login-22> by user <eaminmans> in cluster <euler> at Mon Dec 14 12:31:33 2020
+Job was executed on host(s) <eu-ms-013-28>, in queue <normal.24h>, as user <eaminmans> in cluster <euler> at Mon Dec 14 12:32:04 2020
+</cluster/home/eaminmans> was used as the home directory.
+</cluster/home/eaminmans/withClone/cg-project/nori> was used as the working directory.
+Started at Mon Dec 14 12:32:04 2020
+Terminated at Mon Dec 14 12:32:05 2020
+Results reported at Mon Dec 14 12:32:05 2020
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+./nori ../scenes/project/gotAllFloor2.xml nogui
+------------------------------------------------------------
+
+Exited with exit code 127.
+
+Resource usage summary:
+
+    CPU time :                                   0.07 sec.
+    Max Memory :                                 6 MB
+    Average Memory :                             -
+    Total Requested Memory :                     1024.00 MB
+    Delta Memory :                               1018.00 MB
+    Max Swap :                                   -
+    Max Processes :                              -
+    Max Threads :                                -
+    Run time :                                   10 sec.
+    Turnaround time :                            32 sec.
+
+The output (if any) follows:
+
+/cluster/shadow/.lsbatch/1607945493.155877076: line 8: ./nori: No such file or directory

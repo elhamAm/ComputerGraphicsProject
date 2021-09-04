@@ -1,0 +1,530 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<scene>
+	<integrator type="path_mis"/>
+
+	<sampler type="independent">
+		<integer name="sampleCount" value="512"/>
+	</sampler>
+
+	<camera type="thin_lens">
+		<float name="fov" value="39.59776558105505"/>
+		<float name="nearClip" value="0.10000000149011612"/>
+		<float name="farClip" value="100.0"/>
+		<integer name="width" value="1920"/>
+		<integer name="height" value="1080"/>
+		<transform name="toWorld">
+			<scale value="1.000000 1.000000 -1.000000"/>
+			<matrix value="-0.36609959602355957,-0.15518559515476227,0.917544960975647,10.172821998596191,0.930575966835022,-0.061053432524204254,0.3609727919101715,6.834076881408691,1.4876728755552904e-06,0.9859970211982727,0.166763573884964,6.322244167327881,0.0,0.0,0.0,1.0"/>
+		</transform>
+
+
+
+        <!-- <texture type="imagetexture" name="apertureKernel">
+			<string name="filename" value="textures/hexagon.png"/>
+			<boolean name="raw" value="true"/>
+		</texture> -->
+
+		<float name="lensRadius" value="0.06"/>
+		<float name="focalDistance" value="57"/>
+
+		<!-- <float name = "chromaticAberration" value="0.01"/> -->
+
+	</camera>
+	<mesh type="obj">
+		<string name="filename" value="meshes/Plane.obj"/>
+		<bsdf type="diffuse">
+			<texture type="imagetexture" name="image">
+				<string name="filename" value="textures/grass.png"/>
+			</texture>
+		</bsdf>
+
+		<texture type="imagetexture">
+			<string name="filename" value="textures/grass_normal.png"/>
+			<boolean name="raw" value="true"/>
+		</texture>
+	</mesh>
+	<mesh type="obj">
+		<string name="filename" value="meshes/Deer_None.002.obj"/>
+		<bsdf name="None.002" type="diffuse">
+			<color name="albedo" value="0.800000,0.800000,0.800000"/>
+		</bsdf>
+	</mesh>
+
+
+	<mesh type="obj">
+		<string name="filename" value="meshes/light.001_light.001.obj"/>
+		<bsdf type="diffuse">
+			<color name="albedo" value="0.75,0.75,0.75"/>
+		</bsdf>
+
+		<emitter type="area">
+			<color name="radiance" value="100 100 100"/>
+		</emitter>
+	</mesh>
+
+
+
+	<mesh type="obj">
+		<string name="filename" value="meshes/High_Grass.001_Material.002.obj"/>
+		<bsdf name="Material.002" type="diffuse">
+			<texture type="imagetexture" name="image">
+				<string name="filename" value="textures/Grass_texture.png"/>
+			</texture>
+		</bsdf>
+	</mesh>
+	<mesh type="obj">
+		<string name="filename" value="meshes/High_Grass.003_Material.002.obj"/>
+		<bsdf name="Material.002" type="diffuse">
+			<texture type="imagetexture" name="image">
+				<string name="filename" value="textures/Grass_texture.png"/>
+			</texture>
+		</bsdf>
+	</mesh>
+	<mesh type="obj">
+		<string name="filename" value="meshes/High_Grass.004_Material.002.obj"/>
+		<bsdf name="Material.002" type="diffuse">
+			<texture type="imagetexture" name="image">
+				<string name="filename" value="textures/Grass_texture.png"/>
+			</texture>
+		</bsdf>
+	</mesh>
+	<mesh type="obj">
+		<string name="filename" value="meshes/High_Grass.005_Material.002.obj"/>
+		<bsdf name="Material.002" type="diffuse">
+			<texture type="imagetexture" name="image">
+				<string name="filename" value="textures/Grass_texture.png"/>
+			</texture>
+		</bsdf>
+	</mesh>
+	<mesh type="obj">
+		<string name="filename" value="meshes/High_Grass.006_Material.002.obj"/>
+		<bsdf name="Material.002" type="diffuse">
+			<texture type="imagetexture" name="image">
+				<string name="filename" value="textures/Grass_texture.png"/>
+			</texture>
+		</bsdf>
+	</mesh>
+	<mesh type="obj">
+		<string name="filename" value="meshes/High_Grass.007_Material.002.obj"/>
+		<bsdf name="Material.002" type="diffuse">
+			<texture type="imagetexture" name="image">
+				<string name="filename" value="textures/Grass_texture.png"/>
+			</texture>
+		</bsdf>
+	</mesh>
+	<mesh type="obj">
+		<string name="filename" value="meshes/High_Grass.008_Material.002.obj"/>
+		<bsdf name="Material.002" type="diffuse">
+			<texture type="imagetexture" name="image">
+				<string name="filename" value="textures/Grass_texture.png"/>
+			</texture>
+		</bsdf>
+	</mesh>
+	<mesh type="obj">
+		<string name="filename" value="meshes/High_Grass.009_Material.002.obj"/>
+		<bsdf name="Material.002" type="diffuse">
+			<texture type="imagetexture" name="image">
+				<string name="filename" value="textures/Grass_texture.png"/>
+			</texture>
+		</bsdf>
+	</mesh>
+	<mesh type="obj">
+		<string name="filename" value="meshes/High_Grass.010_Material.002.obj"/>
+		<bsdf name="Material.002" type="diffuse">
+			<texture type="imagetexture" name="image">
+				<string name="filename" value="textures/Grass_texture.png"/>
+			</texture>
+		</bsdf>
+	</mesh>
+	<mesh type="obj">
+		<string name="filename" value="meshes/High_Grass.011_Material.002.obj"/>
+		<bsdf name="Material.002" type="diffuse">
+			<texture type="imagetexture" name="image">
+				<string name="filename" value="textures/Grass_texture.png"/>
+			</texture>
+		</bsdf>
+	</mesh>
+	<mesh type="obj">
+		<string name="filename" value="meshes/High_Grass.012_Material.002.obj"/>
+		<bsdf name="Material.002" type="diffuse">
+			<texture type="imagetexture" name="image">
+				<string name="filename" value="textures/Grass_texture.png"/>
+			</texture>
+		</bsdf>
+	</mesh>
+	<mesh type="obj">
+		<string name="filename" value="meshes/High_Grass.013_Material.003.obj"/>
+		<bsdf name="Material.003" type="diffuse">
+			<texture type="imagetexture" name="image">
+				<string name="filename" value="textures/Grass_texture.png"/>
+			</texture>
+		</bsdf>
+	</mesh>
+	<mesh type="obj">
+		<string name="filename" value="meshes/High_Grass.016_Material.006.obj"/>
+		<bsdf name="Material.006" type="diffuse">
+			<texture type="imagetexture" name="image">
+				<string name="filename" value="textures/Grass_texture.png"/>
+			</texture>
+		</bsdf>
+	</mesh>
+	<mesh type="obj">
+		<string name="filename" value="meshes/High_Grass.017_Material.007.obj"/>
+		<bsdf name="Material.007" type="diffuse">
+			<texture type="imagetexture" name="image">
+				<string name="filename" value="textures/Grass_texture.png"/>
+			</texture>
+		</bsdf>
+	</mesh>
+	<mesh type="obj">
+		<string name="filename" value="meshes/High_Grass.020_Material.010.obj"/>
+		<bsdf name="Material.010" type="diffuse">
+			<texture type="imagetexture" name="image">
+				<string name="filename" value="textures/Grass_texture.png"/>
+			</texture>
+		</bsdf>
+	</mesh>
+	<mesh type="obj">
+		<string name="filename" value="meshes/High_Grass.021_Material.011.obj"/>
+		<bsdf name="Material.011" type="diffuse">
+			<texture type="imagetexture" name="image">
+				<string name="filename" value="textures/Grass_texture.png"/>
+			</texture>
+		</bsdf>
+	</mesh>
+	<mesh type="obj">
+		<string name="filename" value="meshes/High_Grass.022_Material.012.obj"/>
+		<bsdf name="Material.012" type="diffuse">
+			<texture type="imagetexture" name="image">
+				<string name="filename" value="textures/Grass_texture.png"/>
+			</texture>
+		</bsdf>
+	</mesh>
+	<mesh type="obj">
+		<string name="filename" value="meshes/High_Grass.023_Material.013.obj"/>
+		<bsdf name="Material.013" type="diffuse">
+			<texture type="imagetexture" name="image">
+				<string name="filename" value="textures/Grass_texture.png"/>
+			</texture>
+		</bsdf>
+	</mesh>
+	<mesh type="obj">
+		<string name="filename" value="meshes/High_Grass.024_Material.014.obj"/>
+		<bsdf name="Material.014" type="diffuse">
+			<texture type="imagetexture" name="image">
+				<string name="filename" value="textures/Grass_texture.png"/>
+			</texture>
+		</bsdf>
+	</mesh>
+	<mesh type="obj">
+		<string name="filename" value="meshes/High_Grass.025_Material.015.obj"/>
+		<bsdf name="Material.015" type="diffuse">
+			<texture type="imagetexture" name="image">
+				<string name="filename" value="textures/Grass_texture.png"/>
+			</texture>
+		</bsdf>
+	</mesh>
+	<mesh type="obj">
+		<string name="filename" value="meshes/High_Grass.026_Material.016.obj"/>
+		<bsdf name="Material.016" type="diffuse">
+			<texture type="imagetexture" name="image">
+				<string name="filename" value="textures/Grass_texture.png"/>
+			</texture>
+		</bsdf>
+	</mesh>
+	<mesh type="obj">
+		<string name="filename" value="meshes/High_Grass.053_Material.031.obj"/>
+		<bsdf name="Material.031" type="diffuse">
+			<texture type="imagetexture" name="image">
+				<string name="filename" value="textures/Grass_texture.png"/>
+			</texture>
+		</bsdf>
+	</mesh>
+	<mesh type="obj">
+		<string name="filename" value="meshes/High_Grass.052_Material.031.obj"/>
+		<bsdf name="Material.031" type="diffuse">
+			<texture type="imagetexture" name="image">
+				<string name="filename" value="textures/Grass_texture.png"/>
+			</texture>
+		</bsdf>
+	</mesh>
+	<mesh type="obj">
+		<string name="filename" value="meshes/High_Grass.051_Material.031.obj"/>
+		<bsdf name="Material.031" type="diffuse">
+			<texture type="imagetexture" name="image">
+				<string name="filename" value="textures/Grass_texture.png"/>
+			</texture>
+		</bsdf>
+	</mesh>
+	<mesh type="obj">
+		<string name="filename" value="meshes/High_Grass.050_Material.031.obj"/>
+		<bsdf name="Material.031" type="diffuse">
+			<texture type="imagetexture" name="image">
+				<string name="filename" value="textures/Grass_texture.png"/>
+			</texture>
+		</bsdf>
+	</mesh>
+	<mesh type="obj">
+		<string name="filename" value="meshes/High_Grass.049_Material.031.obj"/>
+		<bsdf name="Material.031" type="diffuse">
+			<texture type="imagetexture" name="image">
+				<string name="filename" value="textures/Grass_texture.png"/>
+			</texture>
+		</bsdf>
+	</mesh>
+	<mesh type="obj">
+		<string name="filename" value="meshes/High_Grass.043_Material.031.obj"/>
+		<bsdf name="Material.031" type="diffuse">
+			<texture type="imagetexture" name="image">
+				<string name="filename" value="textures/Grass_texture.png"/>
+			</texture>
+		</bsdf>
+	</mesh>
+	<mesh type="obj">
+		<string name="filename" value="meshes/High_Grass.035_Material.025.obj"/>
+		<bsdf name="Material.025" type="diffuse">
+			<texture type="imagetexture" name="image">
+				<string name="filename" value="textures/Grass_texture.png"/>
+			</texture>
+		</bsdf>
+	</mesh>
+	<mesh type="obj">
+		<string name="filename" value="meshes/High_Grass.080_Material.046.obj"/>
+		<bsdf name="Material.046" type="diffuse">
+			<texture type="imagetexture" name="image">
+				<string name="filename" value="textures/Grass_texture.png"/>
+			</texture>
+		</bsdf>
+	</mesh>
+	<mesh type="obj">
+		<string name="filename" value="meshes/High_Grass.075_Material.041.obj"/>
+		<bsdf name="Material.041" type="diffuse">
+			<texture type="imagetexture" name="image">
+				<string name="filename" value="textures/Grass_texture.png"/>
+			</texture>
+		</bsdf>
+	</mesh>
+	<mesh type="obj">
+		<string name="filename" value="meshes/High_Grass.128_Material.070.obj"/>
+		<bsdf name="Material.070" type="diffuse">
+			<texture type="imagetexture" name="image">
+				<string name="filename" value="textures/Grass_texture.png"/>
+			</texture>
+		</bsdf>
+	</mesh>
+	<mesh type="obj">
+		<string name="filename" value="meshes/High_Grass.127_Material.069.obj"/>
+		<bsdf name="Material.069" type="diffuse">
+			<texture type="imagetexture" name="image">
+				<string name="filename" value="textures/Grass_texture.png"/>
+			</texture>
+		</bsdf>
+	</mesh>
+	<mesh type="obj">
+		<string name="filename" value="meshes/High_Grass.126_Material.068.obj"/>
+		<bsdf name="Material.068" type="diffuse">
+			<texture type="imagetexture" name="image">
+				<string name="filename" value="textures/Grass_texture.png"/>
+			</texture>
+		</bsdf>
+	</mesh>
+	<mesh type="obj">
+		<string name="filename" value="meshes/High_Grass.123_Material.065.obj"/>
+		<bsdf name="Material.065" type="diffuse">
+			<texture type="imagetexture" name="image">
+				<string name="filename" value="textures/Grass_texture.png"/>
+			</texture>
+		</bsdf>
+	</mesh>
+	<mesh type="obj">
+		<string name="filename" value="meshes/High_Grass.122_Material.064.obj"/>
+		<bsdf name="Material.064" type="diffuse">
+			<texture type="imagetexture" name="image">
+				<string name="filename" value="textures/Grass_texture.png"/>
+			</texture>
+		</bsdf>
+	</mesh>
+	<mesh type="obj">
+		<string name="filename" value="meshes/High_Grass.117_Material.062.obj"/>
+		<bsdf name="Material.062" type="diffuse">
+			<texture type="imagetexture" name="image">
+				<string name="filename" value="textures/Grass_texture.png"/>
+			</texture>
+		</bsdf>
+	</mesh>
+	<mesh type="obj">
+		<string name="filename" value="meshes/High_Grass.115_Material.062.obj"/>
+		<bsdf name="Material.062" type="diffuse">
+			<texture type="imagetexture" name="image">
+				<string name="filename" value="textures/Grass_texture.png"/>
+			</texture>
+		</bsdf>
+	</mesh>
+	<mesh type="obj">
+		<string name="filename" value="meshes/High_Grass.137_Material.094.obj"/>
+		<bsdf name="Material.094" type="diffuse">
+			<texture type="imagetexture" name="image">
+				<string name="filename" value="textures/Grass_texture.png"/>
+			</texture>
+		</bsdf>
+	</mesh>
+	<mesh type="obj">
+		<string name="filename" value="meshes/High_Grass.136_Material.093.obj"/>
+		<bsdf name="Material.093" type="diffuse">
+			<texture type="imagetexture" name="image">
+				<string name="filename" value="textures/Grass_texture.png"/>
+			</texture>
+		</bsdf>
+	</mesh>
+	<mesh type="obj">
+		<string name="filename" value="meshes/High_Grass.106_Material.090.obj"/>
+		<bsdf name="Material.090" type="diffuse">
+			<texture type="imagetexture" name="image">
+				<string name="filename" value="textures/Grass_texture.png"/>
+			</texture>
+		</bsdf>
+	</mesh>
+	<mesh type="obj">
+		<string name="filename" value="meshes/High_Grass.100_Material.086.obj"/>
+		<bsdf name="Material.086" type="diffuse">
+			<texture type="imagetexture" name="image">
+				<string name="filename" value="textures/Grass_texture.png"/>
+			</texture>
+		</bsdf>
+	</mesh>
+	<mesh type="obj">
+		<string name="filename" value="meshes/High_Grass.098_Material.086.obj"/>
+		<bsdf name="Material.086" type="diffuse">
+			<texture type="imagetexture" name="image">
+				<string name="filename" value="textures/Grass_texture.png"/>
+			</texture>
+		</bsdf>
+	</mesh>
+	<mesh type="obj">
+		<string name="filename" value="meshes/High_Grass.072_Material.085.obj"/>
+		<bsdf name="Material.085" type="diffuse">
+			<texture type="imagetexture" name="image">
+				<string name="filename" value="textures/Grass_texture.png"/>
+			</texture>
+		</bsdf>
+	</mesh>
+	<mesh type="obj">
+		<string name="filename" value="meshes/High_Grass.062_Material.080.obj"/>
+		<bsdf name="Material.080" type="diffuse">
+			<texture type="imagetexture" name="image">
+				<string name="filename" value="textures/Grass_texture.png"/>
+			</texture>
+		</bsdf>
+	</mesh>
+	<mesh type="obj">
+		<string name="filename" value="meshes/High_Grass.057_Material.077.obj"/>
+		<bsdf name="Material.077" type="diffuse">
+			<texture type="imagetexture" name="image">
+				<string name="filename" value="textures/Grass_texture.png"/>
+			</texture>
+		</bsdf>
+	</mesh>
+	<mesh type="obj">
+		<string name="filename" value="meshes/Archer.001_Skin.obj"/>
+		<bsdf name="Skin" type="diffuse">
+			<color name="albedo" value="0.787370,0.596860,0.477620"/>
+		</bsdf>
+	</mesh>
+	<mesh type="obj">
+		<string name="filename" value="meshes/Boots_Boots.obj"/>
+		<bsdf name="Boots" type="diffuse">
+			<color name="albedo" value="0.037569,0.037569,0.037569"/>
+		</bsdf>
+	</mesh>
+	<mesh type="obj">
+		<string name="filename" value="meshes/Belt_BeltDec.obj"/>
+		<bsdf name="BeltDec" type="diffuse">
+			<color name="albedo" value="0.050974,0.018092,0.006754"/>
+		</bsdf>
+	</mesh>
+	<mesh type="obj">
+		<string name="filename" value="meshes/Belt_Agrada.obj"/>
+		<bsdf name="Agrada" type="diffuse">
+			<color name="albedo" value="0.069712,0.069712,0.069712"/>
+		</bsdf>
+	</mesh>
+	<mesh type="obj">
+		<string name="filename" value="meshes/Sword_Sword.obj"/>
+		<bsdf name="Sword" type="diffuse">
+			<color name="albedo" value="0.437373,0.464826,0.510617"/>
+		</bsdf>
+	</mesh>
+	<mesh type="obj">
+		<string name="filename" value="meshes/Sword_SwordHandle.obj"/>
+		<bsdf name="SwordHandle" type="diffuse">
+			<color name="albedo" value="0.033622,0.033622,0.033622"/>
+		</bsdf>
+	</mesh>
+	<mesh type="obj">
+		<string name="filename" value="meshes/Eyes_EyesWhite.obj"/>
+		<bsdf name="EyesWhite" type="diffuse">
+			<color name="albedo" value="0.640000,0.640000,0.640000"/>
+		</bsdf>
+	</mesh>
+	<mesh type="obj">
+		<string name="filename" value="meshes/Eyes_EyesBrown.obj"/>
+		<bsdf name="EyesBrown" type="diffuse">
+			<color name="albedo" value="0.219065,0.050503,0.007443"/>
+		</bsdf>
+	</mesh>
+	<mesh type="obj">
+		<string name="filename" value="meshes/Eyes_EyesBlack.obj"/>
+		<bsdf name="EyesBlack" type="diffuse">
+			<color name="albedo" value="0.012796,0.012796,0.012796"/>
+		</bsdf>
+	</mesh>
+	<mesh type="obj">
+		<string name="filename" value="meshes/Eyebrows_Eyebrows.obj"/>
+		<bsdf name="Eyebrows" type="diffuse">
+			<color name="albedo" value="0.029928,0.029928,0.029928"/>
+		</bsdf>
+	</mesh>
+	<mesh type="obj">
+		<string name="filename" value="meshes/Bow_Bow.obj"/>
+		<bsdf name="Bow" type="diffuse">
+			<color name="albedo" value="0.138684,0.046296,0.017649"/>
+		</bsdf>
+	</mesh>
+	<mesh type="obj">
+		<string name="filename" value="meshes/Bow_String.obj"/>
+		<bsdf name="String" type="diffuse">
+			<color name="albedo" value="0.640000,0.640000,0.640000"/>
+		</bsdf>
+	</mesh>
+	<mesh type="obj">
+		<string name="filename" value="meshes/Arrow.001_Arrow.001.obj"/>
+		<bsdf name="Arrow.001" type="diffuse">
+			<color name="albedo" value="0.143090,0.125469,0.133183"/>
+		</bsdf>
+	</mesh>
+	<mesh type="obj">
+		<string name="filename" value="meshes/Arrow.001_ArrowWings.obj"/>
+		<bsdf name="ArrowWings" type="diffuse">
+			<color name="albedo" value="0.640000,0.640000,0.640000"/>
+		</bsdf>
+	</mesh>
+	<mesh type="obj">
+		<string name="filename" value="meshes/Hair_Hair.obj"/>
+		<bsdf name="Hair" type="diffuse">
+			<color name="albedo" value="0.033622,0.033622,0.033622"/>
+		</bsdf>
+	</mesh>
+	<mesh type="obj">
+		<string name="filename" value="meshes/Uniform_Uniform.obj"/>
+		<bsdf name="Uniform" type="diffuse">
+			<color name="albedo" value="0.071357,0.161520,0.094491"/>
+		</bsdf>
+	</mesh>
+	<mesh type="obj">
+		<string name="filename" value="meshes/Uniform_BeltDec.obj"/>
+		<bsdf name="BeltDec" type="diffuse">
+			<color name="albedo" value="0.050974,0.018092,0.006754"/>
+		</bsdf>
+	</mesh>
+</scene>

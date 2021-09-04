@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<scene>
+	<integrator type="path_mis"/>
+
+	<camera type="perspective">
+		<float name="fov" value="27.7856"/>
+		<transform name="toWorld">
+			<scale value="-1,1,1"/>
+			<lookat target="0, 0.543051, 2.41198" origin="0, 0.539769, 2.51159" up="0, 1, 0"/>
+		</transform>
+
+		<integer name="height" value="600"/>
+		<integer name="width" value="800"/>
+	</camera>
+
+	<sampler type="independent">
+		<integer name="sampleCount" value="100"/>
+	</sampler>
+
+
+
+	<mesh type="obj">
+		<string name="filename" value="meshes/light.obj"/>
+
+
+		<emitter type="area">
+			<color name="radiance" value="15 15 15"/>
+		</emitter>
+
+		<bsdf type="diffuse">
+			<color name="albedo" value="0.5 0.5 0.5"/>
+		</bsdf>
+	</mesh>
+	
+	<!-- <mesh type="obj">
+		<string name="filename" value="meshes/walls.obj"/>
+
+		<bsdf type="diffuse">
+			<color name="albedo" value="0.725 0.71 0.68"/>
+		</bsdf>
+	</mesh>
+
+	<mesh type="obj">
+		<string name="filename" value="meshes/rightwall.obj"/>
+
+		<bsdf type="diffuse">
+			<color name="albedo" value="0.161 0.133 0.427"/>
+		</bsdf>
+	</mesh>
+
+	<mesh type="obj">
+		<string name="filename" value="meshes/leftwall.obj"/>
+
+		<bsdf type="diffuse">
+			<color name="albedo" value="0.630 0.065 0.05"/>
+		</bsdf>
+	</mesh> -->
+
+	<!-- <mesh type="obj">
+		<string name="filename" value="meshes/box.obj"/>
+		<transform name="toWorld">
+			<scale value="0.2, 0.5, 0.2"/>
+			<translate value="-0.25, 0.5, -0.2"/>
+			<rotate axis="0,1,0" angle="20"/>
+		</transform>
+
+		<bsdf type="diffuse">
+			<color name="albedo" value="0.725 0.71 0.68"/>
+		</bsdf>
+	</mesh>
+
+	<mesh type="obj">
+		<string name="filename" value="meshes/box.obj"/>
+		<transform name="toWorld">
+			<scale value="0.3, 0.3, 0.3"/>
+			<translate value="0.4, 0.3, 0.2"/>
+			<rotate axis="0,1,0" angle="-20"/>
+		</transform>
+
+		<bsdf type="diffuse">
+			<color name="albedo" value="0.725 0.71 0.68"/>
+		</bsdf>
+	</mesh> -->
+
+	<mesh type="obj">
+		<string name="filename" value="meshes/plane.obj"/>
+		<transform name="toWorld">
+			<scale value="0.5, 0.5, 0.5"/>
+			<rotate axis="1, 0, 0" angle="65"/>
+			<translate value="0.0, 0.75, 0"/>
+		</transform>
+
+		<bsdf type="diffuse">
+			<texture type="imagetexture" name="image">
+				<string name="filename" value="textures/floor_tiles.png"/>
+			</texture>
+		</bsdf>
+
+
+		<texture type="imagetexture">
+			<string name="filename" value="textures/floor_tiles_normalmap.png"/>
+			<boolean name="raw" value="true"/>
+		</texture>
+
+	</mesh>
+
+
+</scene>

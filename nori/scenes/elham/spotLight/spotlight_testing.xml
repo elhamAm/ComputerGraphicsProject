@@ -1,0 +1,86 @@
+<scene>
+   
+    <sampler type="independent">
+        <integer name="sampleCount" value="256"/>
+    </sampler>
+
+
+    <integrator type="path_mis">
+    </integrator>
+
+    <camera type="perspective">
+        <transform name="toWorld">
+            <lookat target="0, 0, 0"
+                    origin="14, 15, 2"
+                    up="0, 1.5, 0"/>
+
+        </transform>
+
+        <float name="fov" value="70"/>
+
+
+        <integer name="width" value="800"/>
+        <integer name="height" value="400"/>
+    </camera>
+
+
+    <emitter type="spotlight">
+        <point name="position" value = "-1, 5, 0"/>
+        <color name="radiance" value="1000,1000,1000"/>
+        <float name="fallOffStart" value="30"/>
+        <float name="totalWidth" value="40"/>
+        <vector name="direction" value = "0,-5,0"/>
+    </emitter>
+
+
+    <emitter type="spotlight">
+        <point name="position" value = "-1, 5, 10"/>
+        <color name="radiance" value="1000,1000,1000"/>
+        <float name="fallOffStart" value="10"/>
+        <float name="totalWidth" value="40"/>
+        <vector name="direction" value = "0,-5,0"/>
+    </emitter>
+
+	<emitter type="spotlight">
+        <point name="position" value = "-1, 5, -10"/>
+        <color name="radiance" value="1000,1000,1000"/>
+        <float name="fallOffStart" value="20"/>
+        <float name="totalWidth" value="30"/>
+        <vector name="direction" value = "0,-5,0"/>
+    </emitter>
+
+
+    <mesh type="sphere">
+        <bsdf type="diffuse">
+            <color name="albedo" value="0.2,0.9,0.3"/>
+        </bsdf>
+
+        <transform name="toWorld">
+            <scale value=".04,.05,.05"/>
+            <rotate angle="-90" axis="0 0 2" />
+            <rotate angle="-90" axis="1 0 0" />
+            <translate value="13,3,10"/>
+        </transform>
+
+    </mesh>
+
+
+
+
+
+    <mesh type="obj">
+        <string name="filename" value="base.obj"/>
+        <bsdf type="diffuse">
+        </bsdf>
+
+
+        <transform name="toWorld">
+            <scale value="20, 20, 20"/>
+            <rotate angle="90" axis="0 0 1" />
+            <translate value="100,-4,0"/>
+        </transform>
+
+
+    </mesh>
+
+</scene>
